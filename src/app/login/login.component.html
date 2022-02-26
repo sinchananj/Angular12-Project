@@ -1,0 +1,72 @@
+<div class="wrapper" *ngIf="!userPage">
+  <div class="logo"> </div>
+  <form class="p-3 mt-3">
+      <div class="form-field d-flex align-items-center form-group"> <span class="far fa-user"></span> <input type="text" name="userName" id="userName" placeholder="Username"> </div>
+      <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input type="password" name="password" id="password" placeholder="Password">
+       </div> <button class="btn mt-3" (click)="login()" >Login</button>
+  </form>
+  <div class="text-center fs-6"></div>
+</div>
+<div>
+<div class="container" *ngIf="userPage">
+    <button type="button" class="btn " style="margin:1rem; float:right" (click)="signUp()">Logout</button>
+    <h2  style="text-align: center;">E-COMMERCE </h2>            
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let data of userData">
+            <td>{{data.id}}</td>
+            <td>{{data.title}}</td>
+            <td>{{data.category}}</td>
+            <td><button ><i class="fa fa-bars mr-1"></i></button>
+                <button ><i class="fa fa-trash ml-1"></i></button>
+                <button ><i class="fa fa-close ml-2"></i></button></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<!-- <div class="card-pf">
+    <div >
+        <h2  style="font-weight: 500;letter-spacing: 0.9px;font-size: var(--font-22);margin-top: 0;color: black;">
+            Sign Up
+        </h2>
+        <div id="kc-registration">
+            <span class="login-message">Already have an account? <a tabindex="6" (click)="login()">Login</a></span>
+        </div>
+        <form >
+            <div class="form-group">
+                <label for="email" class="control-label">Email</label>
+                <input tabindex="1" id="email" class="form-control" name="email" formControlName="email"  type="text" autocomplete="off" />
+                <mat-error *ngIf="(registerForm.get('email')?.hasError('required') || !registerForm.get('email')?.valid) 
+                && (registerForm.get('email')?.dirty && registerForm.get('email')?.touched)">
+                    Please enter valid email</mat-error>
+            </div>
+            <div class="form-group">
+                <label for="organization" class="control-label">Organization Name</label>
+                <input tabindex="1" id="organization" class="form-control" name="organization" formControlName="password"  type="text" autocomplete="off" />
+                <mat-error *ngIf="(registerForm.get('password')?.hasError('required') || !registerForm.get('password')?.valid) 
+                && (registerForm.get('password')?.dirty && registerForm.get('password')?.touched)">
+                    Please enter valid organization name</mat-error>
+            </div>
+  
+  
+            <div id="form-buttons">
+                <button type="button" class="btn btn-primary btn-block btn-lg" value="Sign up" (click)="signUp()" >
+                    <span >Sign Up</span>
+                    <span class="keyspin"><i class="fa fa-spinner fa-spin"></i></span>
+                </button>
+  
+            </div>
+        </form>
+    </div>
+    
+  </div> -->
